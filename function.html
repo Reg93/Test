@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+
+    <p id="number"></p>
+
+    <script>
+
+        let array = [1,3,4,5,7,5,6];
+        let newArr =[];
+        
+
+        function getFruit(arr){
+            
+                for (i = 0; i<arr.length; i++){
+
+                    if (arr[i] % 3 == 0) {
+                    arr[i] = "apple";
+                    newArr.push(arr[i]);
+                    }
+                    
+
+                    else if (arr[i] % 5 == 0){
+                    arr[i] = "orange";
+                    newArr.push(arr[i]);
+                    }
+
+                    else newArr.push(arr[i]);
+                }
+
+                document.querySelector('#number').textContent = newArr;
+            }
+
+        getFruit(array);
+    
+    
+    </script>
+</body>
+</html>

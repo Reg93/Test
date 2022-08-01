@@ -20,37 +20,25 @@
         button.addEventListener('click', function() {
         inputVal = document.querySelector('input').value;
         array = inputVal.split(',');
-        getFruit(array);
+        showFruits(array);
         return array;
         });
 
-        function getFruit(arr){
-            let newArr = [];
-        
-            for (i = 0; i<arr.length; i++){
+        function showFruits(array){
 
-                if (arr[i] % 3 == 0 && arr[i] % 5 ==0) {
-                    arr[i] = "apple";
-                    newArr.push(arr[i]);
-                    arr[i] = "orange";
-                    newArr.push(arr[i]);
-                    }
+            let newArray = array.map(function(item, index, array){
+                if (item % 3 == 0 && item % 5 == 0)
+                        return item = "apple, orange";
+    
+                    else if (item % 3 == 0) 
+                        return item = "apple";
+                    
+                    else if (item % 5 == 0)
+                        return item = "orange";
 
-                 else if (arr[i] % 3 == 0) {
-                    arr[i] = "apple";
-                    newArr.push(arr[i]);
-                    }
-                
-
-                else if (arr[i] % 5 == 0){
-                    arr[i] = "orange";
-                    newArr.push(arr[i]);
-                }
-
-                else newArr.push(arr[i]);
-            }
-
-            document.querySelector('#number').textContent = newArr;
+                    else return item;
+            });
+            document.querySelector('#number').textContent = newArray;
         }
     
     </script>

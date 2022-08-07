@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+
+    <input type="text">
+    <button>new array</button>
+    <p id="number"></p>
+
+    <script>
+
+        let inputVal;
+        button = document.querySelector('button');
+        array = [];
+
+        button.addEventListener('click', function() {
+        inputVal = document.querySelector('input').value;
+        array = inputVal.split(',');
+        showFruits(array);
+        return array;
+        });
+
+        function showFruits(array){
+
+            let newArray = array.map(function(item, index, array){
+                if (item % 3 == 0 && item % 5 == 0)
+                        return item = "apple, orange";
+    
+                    else if (item % 3 == 0) 
+                        return item = "apple";
+                    
+                    else if (item % 5 == 0)
+                        return item = "orange";
+
+                    else return item;
+            });
+            document.querySelector('#number').textContent = newArray;
+        }
+    
+    </script>
+
+</body>
+</html>

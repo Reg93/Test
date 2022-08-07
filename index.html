@@ -3,45 +3,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <link rel="stylesheet" href="style.css">
+    <title>TODO list</title>
 </head>
 <body>
+    <div class="wrapper">
 
-    <input type="text">
-    <button>new array</button>
-    <p id="number"></p>
+        <div class="tabs">
 
-    <script>
-
-        let inputVal;
-        button = document.querySelector('button');
-        array = [];
-
-        button.addEventListener('click', function() {
-        inputVal = document.querySelector('input').value;
-        array = inputVal.split(',');
-        showFruits(array);
-        return array;
-        });
-
-        function showFruits(array){
-
-            let newArray = array.map(function(item, index, array){
-                if (item % 3 == 0 && item % 5 == 0)
-                        return item = "apple, orange";
+            <div class="login">
+                <div class="login-form">
+                    <form onsubmit="return false;" action="post" class="form">
+                        <label for="email">Email пользователя</label>
+                        <input type="email" name="email" id="email" class="login__input" required>
+                        <label for="password">Пароль</label>
+                        <input type="password" name="password" id="password" class="login__input" required>
+                        <button class="login__button" >Log in</button>
+                    </form>
+                </div>
+            </div>
     
-                    else if (item % 3 == 0) 
-                        return item = "apple";
-                    
-                    else if (item % 5 == 0)
-                        return item = "orange";
+            <div class="todo-list" id="todo-list">
+                <div class="list-box">
+                    <h1 class="list__title">Your TODO list</h1>
+                    <input type="text" placeholder="Write your task" class="list__input">
+                    <button type="submit" class="list__button">Add task</button>
+                    <div class="list__items">
+                    </div>
+                </div>
+            </div>
 
-                    else return item;
-            });
-            document.querySelector('#number').textContent = newArray;
-        }
+        </div>
+
+    </div>
     
-    </script>
-
+   
+    <script src="script.js"></script>
+  
 </body>
 </html>

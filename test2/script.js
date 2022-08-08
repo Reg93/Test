@@ -32,6 +32,7 @@ todoList.onclick = (e) => {
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'list__checkbox';
+        checkbox.style.border = "10px";
 
     
         let paragraph = document.createElement('p');

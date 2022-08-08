@@ -1,30 +1,60 @@
-const tabs = document.querySelector('.tabs');
 let todoList = document.querySelector('.todo-list');
 
 const login = document.querySelector(".login");
 document.querySelector('.login__button').addEventListener('click', function(){
-    tabs.removeChild(login);
-    todoList.style.display = 'block';
 
+    if(document.querySelector('.login__input').value == ''){
+        return false;
+    }
+    else { 
+        login.style.display = 'none';
+        todoList.style.display = 'block';
+    }
 })
 
-let listItems = document.querySelector('.list__items')
-let checkbox = document.createElement('input');
+todoList.onclick = (e) => {
 
-document.querySelector('.list__button').onclick = () => {
-    checkbox.type = 'checkbox';
-    checkbox.style.marginTop = '30px';
-    checkbox.style.width = '25px';
-    checkbox.style.height = '25px';
+    let finish = document.querySelector('.list__finish')
+    
+    let listItems = document.querySelector('.list__items')
 
-    listItems.appendChild(checkbox);
-}
+    let task = document.querySelector('.list__input').value;
 
-listItems.onclick = () => {
-    if (checkbox.checked){
-        listItems.removeChild(checkbox);
+    if (e.target.className == 'list__button') {
+
+        finish.style.display = 'none';
+    
+        let box = document.createElement('div');
+        box.style.display = 'flex';
+        box.style.alignItems = 'center'
+        box.className = 'list__box';
+    
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'list__checkbox';
+
+    
+        let paragraph = document.createElement('p');
+        
+        listItems.appendChild(box);
+        box.appendChild(checkbox);
+        box.appendChild(paragraph);
+        paragraph.textContent = task;
+        document.querySelector('.list__input').value = "";
+    }
+
+    if (e.target.className == 'list__checkbox'){
+
+        let parentBox = document.querySelector('.list__box');
+        
+        parentBox.parentNode.removeChild(parentBox);
+
+        let arrItems = [...listItems.querySelectorAll('*')];
+
+        if (arrItems == ''){
+            finish.style.display = 'block';
+        }
+
     }
     else return;
 }
-
-

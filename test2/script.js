@@ -1,13 +1,15 @@
 let todoList = document.querySelector('.todo-list');
 
-const login = document.querySelector(".login");
+let login = document.querySelector('.login');
 
 document.querySelector('.login__button').addEventListener('click', function(){
 
     if(document.querySelector('.login__input').value == ''){
+
         return false;
     }
     else { 
+
         login.style.display = 'none';
         todoList.style.display = 'block';
     }
@@ -47,9 +49,8 @@ todoList.onclick = (e) => {
         box.appendChild(paragraph);
         paragraph.textContent = task;
         document.querySelector('.list__input').value = '';
-    }
 
-    
+    } 
 
     if(e.target.className == 'list__checkbox'){
         
@@ -60,10 +61,10 @@ todoList.onclick = (e) => {
         let arrItems = [...listItems.querySelectorAll('*')];
 
         if (arrItems == ''){
+
             finish.style.display = 'block';
+            
         }
-
     }
-
 }
 

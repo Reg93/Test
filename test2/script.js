@@ -1,6 +1,7 @@
 let todoList = document.querySelector('.todo-list');
 
 const login = document.querySelector(".login");
+
 document.querySelector('.login__button').addEventListener('click', function(){
 
     if(document.querySelector('.login__input').value == ''){
@@ -12,12 +13,14 @@ document.querySelector('.login__button').addEventListener('click', function(){
     }
 })
 
+
+
 todoList.onclick = (e) => {
 
     let finish = document.querySelector('.list__finish')
-    
-    let listItems = document.querySelector('.list__items')
 
+    let listItems = document.querySelector('.list__items')
+    
     let task = document.querySelector('.list__input').value;
 
     if (e.target.className == 'list__button') {
@@ -32,23 +35,27 @@ todoList.onclick = (e) => {
         let checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.className = 'list__checkbox';
-        checkbox.style.border = "10px";
+        checkbox.style.width = '20px';
+        checkbox.style.height = '20px';
 
-    
         let paragraph = document.createElement('p');
+        paragraph.className = 'list__task';
+
         
         listItems.appendChild(box);
         box.appendChild(checkbox);
         box.appendChild(paragraph);
         paragraph.textContent = task;
-        document.querySelector('.list__input').value = "";
+        document.querySelector('.list__input').value = '';
     }
 
-    if (e.target.className == 'list__checkbox'){
+    
 
-        let parentBox = document.querySelector('.list__box');
+    if(e.target.className == 'list__checkbox'){
         
-        parentBox.parentNode.removeChild(parentBox);
+        let target = e.target.parentNode;
+
+        target.parentNode.removeChild(target);
 
         let arrItems = [...listItems.querySelectorAll('*')];
 
@@ -57,5 +64,6 @@ todoList.onclick = (e) => {
         }
 
     }
-    else return;
+
 }
+
